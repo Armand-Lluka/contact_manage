@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import Styled from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Article = Styled.article.attrs({
   className: 'mw6 center'
 })``;
-const Hover = Styled.a.attrs({
+const Hover = Styled.div.attrs({
   className: 'link dt w-100 bb b--black-10 pb2 mt2 dim blue'
 })``;
 const Cell = Styled.div.attrs({
@@ -27,6 +28,12 @@ const Table = Styled.div.attrs({
 })``;
 
 export default class Contact extends Component {
+  state = {};
+
+  onShowClick = e => {
+    console.log(e);
+  };
+
   render() {
     const { name, email, phone, id } = this.props.contact;
     return (
@@ -36,7 +43,10 @@ export default class Contact extends Component {
             <Image src='http://mrmrs.github.io/images/0010.jpg' />
           </Cell>
           <Table>
-            <Name>{name}</Name>
+            <Name>
+              {name}{' '}
+              <FontAwesomeIcon onClick={this.onShowClick} icon='sort-down' />
+            </Name>
             <Email>{email}</Email>
             <Phone>{phone}</Phone>
           </Table>
