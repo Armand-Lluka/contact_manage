@@ -1,16 +1,24 @@
 import React from 'react';
 import Styled from 'styled-components';
 
+const Container = Styled.header.attrs({
+  className: 'bg-black  w-100'
+})``;
+const Navbar = Styled.nav.attrs({
+  className: 'f6 fw6 ttu tracked'
+})``;
+// const
+
 const Header = () => {
   return (
-    <header className='bg-black  w-100  '>
-      <nav className='f6 fw6 ttu tracked'>
+    <Container>
+      <Navbar>
         <h2 className=' ml4 dib white  mr3'>Contact Manager</h2>
-        <a class='mh4 link dim white  mr3   ' href='#' title='Home'>
+        <a className='mh4 link dim white  mr3   ' href='#' title='Home'>
           Home{' '}
         </a>
-      </nav>
-    </header>
+      </Navbar>
+    </Container>
   );
 };
 
