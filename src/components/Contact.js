@@ -1,33 +1,47 @@
 import React, { Component } from 'react';
 import Styled from 'styled-components';
 
+const Article = Styled.article.attrs({
+  className: 'mw6 center'
+})``;
+const Hover = Styled.a.attrs({
+  className: 'link dt w-100 bb b--black-10 pb2 mt2 dim blue'
+})``;
+const Cell = Styled.div.attrs({
+  className: 'dtc w3'
+})``;
+const Image = Styled.img.attrs({
+  className: 'db w-100'
+})``;
+const Name = Styled.h1.attrs({
+  className: 'f6 f5-ns fw6 lh-title black mv0'
+})``;
+const Email = Styled.h2.attrs({
+  className: 'f6 fw4 mt2 mb0 black-60'
+})``;
+const Phone = Styled.dd.attrs({
+  className: 'ml0 pt2'
+})``;
+const Table = Styled.div.attrs({
+  className: 'dtc v-top pl2'
+})``;
+
 export default class Contact extends Component {
   render() {
-    const { name, email, phone, id } = this.props;
+    const { name, email, phone, id } = this.props.contact;
     return (
-      <main className='mw6 center' key={id}>
-        <article>
-          <a
-            className='link dt w-100 bb b--black-10 pb2 mt2 dim blue'
-            href='#0'
-          >
-            <div className='dtc w3'>
-              <img
-                src='http://mrmrs.github.io/images/0010.jpg'
-                className='db w-100'
-              />
-            </div>
-            <div className='dtc v-top pl2'>
-              <h1 className='f6 f5-ns fw6 lh-title black mv0'>{name}</h1>
-              <h2 className='f6 fw4 mt2 mb0 black-60'>{email}n</h2>
-              <dl className='mt2 f6'>
-                <dt className='clip '>Price</dt>
-                <dd className='ml0'>{phone}</dd>
-              </dl>
-            </div>
-          </a>
-        </article>
-      </main>
+      <Article key={id}>
+        <Hover href='#0'>
+          <Cell>
+            <Image src='http://mrmrs.github.io/images/0010.jpg' />
+          </Cell>
+          <Table>
+            <Name>{name}</Name>
+            <Email>{email}</Email>
+            <Phone>{phone}</Phone>
+          </Table>
+        </Hover>
+      </Article>
     );
   }
 }
